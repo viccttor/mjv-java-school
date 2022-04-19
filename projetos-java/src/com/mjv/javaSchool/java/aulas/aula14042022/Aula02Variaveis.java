@@ -1,4 +1,4 @@
-package com.mjv.java.school.java.aulas.aula14042022;
+package com.mjv.javaSchool.java.aulas.aula14042022;
 
 public class Aula02Variaveis {
 

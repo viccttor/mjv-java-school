@@ -1,4 +1,4 @@
-package com.mjv.java.school.java.exercicios.powerClass.stringFormat;
+package com.mjv.javaSchool.java.exercicios.powerClass.stringFormat;
 
 public class StringFormatExemplo01 {
 
