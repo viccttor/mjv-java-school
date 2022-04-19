@@ -13,7 +13,7 @@ public class StringFormatExemplo01 {
 		// Trazendo com concatenação as variáveis pelo console
 		System.out.println("Nome: " + nome + "\tSobrenome: " + sobrenome + "\tIdade: " + idade + "\tSalário: " + salario);
 		
-		// A sentença de código ficou muito extensa
+		// Utilizando o recurso printf para pode colocar na setença a variável.
 		System.out.printf("\n\nNome %s %s, tem %d anos e ganha R$%f por mês.", nome,sobrenome,idade,salario);
 		
 		// Nesta condição, utilizamos um recurso para controlar o número de casas decimais do tipo float ou double
