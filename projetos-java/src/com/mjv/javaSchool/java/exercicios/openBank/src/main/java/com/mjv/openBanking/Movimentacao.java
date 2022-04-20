@@ -1,15 +1,19 @@
 package com.mjv.openBanking;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Movimentacao {
 	
 	private LocalDate data;
-	private BigDecimal valor;
+	private Double valor;
+	//2022041600013521779118RAIMUNDO NONATO LOUREIRO CAST0000127548R0
+	@Override
+	public String toString() {
+		return "Movimentacao [data=" + data + ", valor=" + valor + ", nomeCliente=" + nomeCliente + ", cpf=" + cpfCnpj
+				+ ", cnpj=" + ", estornada=" + estornada + ", tipo=" + tipo + "]";
+	}
 	private String nomeCliente;
-	private String cpf;
-	private String cnpj;
+	private String cpfCnpj;
 	private Boolean estornada;
 	private TipoMovimentacao tipo;
 	
@@ -19,10 +23,10 @@ public class Movimentacao {
 	public void setData(LocalDate localDate) {
 		this.data = localDate;
 	}
-	public BigDecimal getValor() {
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(BigDecimal valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 	public String getNomeCliente() {
@@ -31,17 +35,11 @@ public class Movimentacao {
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
-	public String getCpf() {
-		return cpf;
+	public String getCpfCnpj() {
+		return cpfCnpj;
 	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public String getCnpj() {
-		return cnpj;
-	}
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
 	}
 	public Boolean getEstornada() {
 		return estornada;
