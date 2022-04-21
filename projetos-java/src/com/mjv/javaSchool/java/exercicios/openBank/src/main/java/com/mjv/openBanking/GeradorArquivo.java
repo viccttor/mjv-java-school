@@ -1,29 +1,30 @@
 package com.mjv.openBanking;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 
 public class GeradorArquivo {
+	public void escreverDisco(String geradorConteudo) {
+		LocalDate now = LocalDate.now();
+		String nomeArquivo = now.toString() + "_movimentacao.txt";
+		try {
+			File diretorio = new File(
+					"C:\\gitHub\\mjv-java-school\\projetos-java\\src\\com\\mjv\\javaSchool\\java\\exercicios"
+							+ "\\openBank\\banco_central\\movimentacaoes");
+			if (!diretorio.exists())
+				diretorio.mkdirs();
 
-	public static void main(String[] args) {
+			Path path = Paths.get(diretorio.getAbsolutePath(), nomeArquivo);
 
-		Movimentacao mov1 = new Movimentacao();
-		mov1.setData(LocalDate.of(2022,04,16));
-		mov1.setCpfCnpj("135.217.791-18");
-		mov1.setNomeCliente("RAIMUNDO NONATO LOUREIRO CASTELO BRANCO");
-		mov1.setValor(1275.48);
-		mov1.setTipo(TipoMovimentacao.RECEITA);
-		mov1.setEstornada(Boolean.FALSE);
-		
-		System.out.println(mov1);
-		System.out.println();
-		
-		GeradorConteudo gc = new GeradorConteudo();
-		String conteudoGerado = gc.gerar(mov1);
-		
-		
-		//2022041600013521779118RAIMUNDO NONATO LOUREIRO CAST0000127548R0
-
-		System.out.println(conteudoGerado);
+			Files.write(path, geradorConteudo.getBytes(StandardCharsets.UTF_8));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
