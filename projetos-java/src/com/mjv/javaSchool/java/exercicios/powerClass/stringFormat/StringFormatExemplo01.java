@@ -22,26 +22,21 @@ public class StringFormatExemplo01 {
 		
 		// Utilizando o %-20d, ele especifica a largura apos
 		System.out.println();
-		String teste2 = String.format("|%-20d| teste2", 93);
-		System.out.println(teste2);
+		System.out.println(String.format("|%-20d| teste2", 93));
 		
 		// Utilizando o %20d, ele especifica a largura antes
 		System.out.println();
-		String teste3 = String.format("|%20d| teste2", 93);
-		System.out.println(teste3);
+		System.out.println(String.format("|%20d| teste2", 93));
 		
 		// Utilizando o %020d, bloco com zeros
 		System.out.println();
-		String teste4 = String.format("|%020d| teste2", 93);
-		System.out.println(teste4);
+		System.out.println(String.format("|%020d| teste2", 93));
 		
 		// Limitando o uso de caracteres
 		System.out.println();
-		String teste5 = String.format("|%.4s|", "|Victor Henrique|");
-		System.out.println(teste5);
+		System.out.println(String.format("|%.4s|", "|Victor Henrique|"));
 		System.out.println();
-		String teste6 = String.format("|%.4s|", (nome + sobrenome));
-		System.out.println(teste6);
+		System.out.println(String.format("|%.4s|", (nome + sobrenome)));
 		
 	}
 
