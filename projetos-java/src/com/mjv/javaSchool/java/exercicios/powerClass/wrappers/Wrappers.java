@@ -21,7 +21,14 @@ public class Wrappers {
 
 		Character c = '$';
 		System.out.println(c.toString());
+		
+		String num = "20";
 
+		Integer num1 = Integer.parseInt(num);
+		System.out.println(num1);
+
+		Double num2 = Double.parseDouble(num);
+		System.out.println(num2);
 	}
 
 }
