@@ -36,7 +36,7 @@ public class StringFormatExemplo01 {
 		System.out.println();
 		System.out.println(String.format("|%.4s|", "|Victor Henrique|"));
 		System.out.println();
-		System.out.println(String.format("|%.4s|", (nome + sobrenome)));
+		System.out.println(String.format("|%.8s|", (nome + sobrenome)));
 		
 	}
 
