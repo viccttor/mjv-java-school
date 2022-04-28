@@ -15,6 +15,7 @@ public class SistemaAgualuzNotification {
 		contrato.setDataHora(LocalDateTime.of(2022, 2, 21, 16, 00));
 		contrato.setNumeroProtocolo(2022025687L);
 		contrato.setValor(127.33);
+		contrato.setServico("Água");
 		
 		Cadastro cliente = new Cadastro();
 		contrato.setCliente(cliente);
