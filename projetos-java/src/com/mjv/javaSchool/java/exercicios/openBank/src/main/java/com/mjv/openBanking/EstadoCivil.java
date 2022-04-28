@@ -10,7 +10,7 @@ public enum EstadoCivil {
 		this.sigla = sigla;
 	}
 	
-	public String getSigla() {
+	public String getSigla(	) {
 		return sigla;
 	}
 

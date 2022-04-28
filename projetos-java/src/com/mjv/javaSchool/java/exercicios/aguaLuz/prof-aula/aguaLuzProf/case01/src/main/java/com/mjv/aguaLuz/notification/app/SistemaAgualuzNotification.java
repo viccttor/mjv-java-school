@@ -12,7 +12,7 @@ public class SistemaAgualuzNotification {
 	public static void main(String[] args) {
 
 		Contrato contrato = new Contrato();
-		contrato.setDataHora(LocalDateTime.of(2022, 02, 21, 16, 00));
+		contrato.setDataHora(LocalDateTime.of(2022, 2, 21, 16, 00));
 		contrato.setNumeroProtocolo(2022025687L);
 		contrato.setValor(127.33);
 		
@@ -27,7 +27,7 @@ public class SistemaAgualuzNotification {
 		endereco.setNumero("243");
 		endereco.setComplemento("Ap 207, Bloco C");
 		endereco.setBairro("Santo Antonio");
-		endereco.setCidade("São Paulo");
+		endereco.setCidade("SÃ£o Paulo");
 		endereco.setEstado("SP");
 		endereco.setCep("27310657");
 		

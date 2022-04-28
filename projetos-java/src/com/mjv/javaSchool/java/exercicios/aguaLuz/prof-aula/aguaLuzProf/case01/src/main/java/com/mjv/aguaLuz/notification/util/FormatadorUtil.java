@@ -1,5 +1,8 @@
 package com.mjv.aguaLuz.notification.util;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class FormatadorUtil {
 
 	public static String formatarCpf(String cpf) {
@@ -17,6 +20,12 @@ public class FormatadorUtil {
 		String part3 = cep.substring(5,8);
 		String cpfFormatador = String.format("%s.%s-%s", part1,part2,part3);
 		return cpfFormatador;
+	}
+	
+	public static String formatarDataHora (LocalDateTime data) {
+		DateTimeFormatter dataFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy H:mm");
+		String dataFormatada = data.format(dataFormatador);
+		return dataFormatada.toString();
 	}
 	
 }
