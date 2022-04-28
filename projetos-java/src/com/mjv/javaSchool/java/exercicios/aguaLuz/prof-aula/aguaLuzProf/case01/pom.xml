@@ -4,7 +4,7 @@
   <artifactId>agua-luz-prof</artifactId>
   <version>1.0</version>
   <name>agua-luz-notification-prof-case01</name>
-  <properties>
+     <properties>
 
 		<maven.compiler.target>11.0.13</maven.compiler.target>
 		<maven.compiler.source>11.0.13</maven.compiler.source>
