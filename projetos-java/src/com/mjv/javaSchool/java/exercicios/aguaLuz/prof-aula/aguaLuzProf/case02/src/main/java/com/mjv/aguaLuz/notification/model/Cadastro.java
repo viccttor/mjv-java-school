@@ -3,9 +3,18 @@ package com.mjv.aguaLuz.notification.model;
 public class Cadastro {
 	
 	private String nome;
+	private String rg;
 	private String cpf;
 	private String protocolo;
 	private Endereco endereco;
+	private Pais pais;
+	
+	public Pais getPais() {
+		return pais;
+	}
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
 	
 	public String getNome() {
 		return nome;
@@ -30,6 +39,12 @@ public class Cadastro {
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 		
 	

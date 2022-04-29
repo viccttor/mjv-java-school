@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Contrato {
 	
 	private Long numeroProtocolo;
-	private String Servico;
+	private Servico servico;
 	private Double valor;
 	private LocalDateTime dataHora;
 	private Cadastro cliente;
@@ -16,11 +16,11 @@ public class Contrato {
 	public void setNumeroProtocolo(Long numeroProtocolo) {
 		this.numeroProtocolo = numeroProtocolo;
 	}
-	public String getServico() {
-		return Servico;
+	public Servico getServico() {
+		return servico;
 	}
-	public void setServico(String servico) {
-		Servico = servico;
+	public void setServico(Servico servico) {
+		this.servico = servico;
 	}
 	public Double getValor() {
 		return valor;

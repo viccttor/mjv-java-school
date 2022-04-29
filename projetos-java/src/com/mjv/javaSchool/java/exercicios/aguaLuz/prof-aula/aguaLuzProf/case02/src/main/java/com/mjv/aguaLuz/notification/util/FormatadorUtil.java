@@ -1,5 +1,7 @@
 package com.mjv.aguaLuz.notification.util;
 
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -31,6 +33,10 @@ public class FormatadorUtil {
 	public static String formatarValorBr(Double valor ) {
 		String valorFormatador = valor.toString().replace(".", ",");
 		return valorFormatador;
+	}
+	
+	public static String removerAcentos(String palavra) {
+		return Normalizer.normalize(palavra, Form.NFD).replaceAll("[^\\p{ASCII}]", "");
 	}
 	
 }
