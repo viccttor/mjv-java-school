@@ -4,4 +4,11 @@
   <artifactId>agua-luz-atraction-prof-case02</artifactId>
   <version>1.0</version>
   <name>agua-luz-atraction-prof-case02</name>
+      <properties>
+
+		<maven.compiler.target>11.0.13</maven.compiler.target>
+		<maven.compiler.source>11.0.13</maven.compiler.source>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+	</properties>
 </project>
