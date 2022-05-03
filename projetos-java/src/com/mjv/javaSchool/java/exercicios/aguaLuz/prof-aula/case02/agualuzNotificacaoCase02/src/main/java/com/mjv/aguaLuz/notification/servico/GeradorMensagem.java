@@ -1,8 +1,8 @@
 package com.mjv.aguaLuz.notification.servico;
 
-import com.mjv.aguaLuz.notification.model.Cadastro;
-import com.mjv.aguaLuz.notification.model.Contrato;
-import com.mjv.aguaLuz.notification.util.FormatadorUtil;
+import com.mjv.aguaLuz.atraction.model.Cadastro;
+import com.mjv.aguaLuz.atraction.model.Contrato;
+import com.mjv.aguaLuz.atraction.util.FormatadorUtil;
 
 public class GeradorMensagem {
 

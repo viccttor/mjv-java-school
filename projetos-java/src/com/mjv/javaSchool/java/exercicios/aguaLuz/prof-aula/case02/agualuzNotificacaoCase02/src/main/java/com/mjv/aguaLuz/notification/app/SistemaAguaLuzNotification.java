@@ -1,6 +1,6 @@
 package com.mjv.aguaLuz.notification.app;
 
-import com.mjv.aguaLuz.notification.model.Contrato;
+import com.mjv.aguaLuz.atraction.model.Contrato;
 import com.mjv.aguaLuz.notification.repository.ContratoTxtRepository;
 import com.mjv.aguaLuz.notification.servico.GeradorMensagem;
 

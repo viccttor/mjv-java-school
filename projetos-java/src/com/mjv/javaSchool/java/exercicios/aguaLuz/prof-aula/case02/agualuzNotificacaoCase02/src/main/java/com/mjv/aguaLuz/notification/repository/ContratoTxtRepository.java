@@ -6,12 +6,12 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import com.mjv.aguaLuz.notification.model.Cadastro;
-import com.mjv.aguaLuz.notification.model.Contrato;
-import com.mjv.aguaLuz.notification.model.Endereco;
-import com.mjv.aguaLuz.notification.model.Pais;
-import com.mjv.aguaLuz.notification.model.Servico;
-import com.mjv.aguaLuz.notification.model.TipoNotificacao;
+import com.mjv.aguaLuz.atraction.model.Cadastro;
+import com.mjv.aguaLuz.atraction.model.Contrato;
+import com.mjv.aguaLuz.atraction.model.Endereco;
+import com.mjv.aguaLuz.atraction.model.Pais;
+import com.mjv.aguaLuz.atraction.model.Servico;
+import com.mjv.aguaLuz.atraction.model.TipoNotificacao;
 
 public class ContratoTxtRepository {
 	public Contrato buscar() {
