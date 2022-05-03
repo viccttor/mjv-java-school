@@ -2,7 +2,7 @@ package com.mjv.aguaLuz.notification.model;
 
 public class Endereco {
 	
-	private String lagradouro;
+	private String logradouro;
 	private String numero;
 	private String complemento;
 	private String bairro;
@@ -10,11 +10,11 @@ public class Endereco {
 	private String estado;
 	private String cep;
 	
-	public String getLagradouro() {
-		return lagradouro;
+	public String getLogradouro() {
+		return logradouro;
 	}
-	public void setLagradouro(String lagradouro) {
-		this.lagradouro = lagradouro;
+	public void setLogradouro(String lagradouro) {
+		this.logradouro = lagradouro;
 	}
 	public String getNumero() {
 		return numero;
