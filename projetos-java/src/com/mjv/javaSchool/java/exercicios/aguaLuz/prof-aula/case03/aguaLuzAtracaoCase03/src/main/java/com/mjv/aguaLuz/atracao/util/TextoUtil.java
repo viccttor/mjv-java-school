@@ -19,8 +19,13 @@ public class TextoUtil {
 	}
 
 	public static String cortar(String textoOrigianal, int tamanhoMaximo) {
-		String novoTexto = textoOrigianal.substring(0, tamanhoMaximo);
-		return novoTexto;
+		// JR
+		//String novoTexto = textoOrigianal.substring(0, tamanhoMaximo);
+		//return novoTexto;
+		
+		// pleno/Senhor
+		
+		return textoOrigianal.substring(0,Math.min(tamanhoMaximo, textoOrigianal.length()));
 	}
 
 	public static String ajustar(String textoOrigianal, int tamanhoMaximo) {

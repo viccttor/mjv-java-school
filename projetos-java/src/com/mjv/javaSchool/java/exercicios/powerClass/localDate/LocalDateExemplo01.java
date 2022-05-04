@@ -8,6 +8,7 @@ public class LocalDateExemplo01 {
 		
 		Date data = new Date();
 		System.out.println(data);
+		
 	}
 
 }
