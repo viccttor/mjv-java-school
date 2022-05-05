@@ -9,6 +9,8 @@ public class SistemaLeitorArquivo {
 
 		CnabTxtRepository cnab = new CnabTxtRepository();
 		
+		Movimentacao movimentacao = cnab.buscar();
+		
 
 	}
 

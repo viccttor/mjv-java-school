@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 
-public class GeradorArquivo {
+public class GeradorArquivoTxt {
 	public void escreverDisco(String geradorConteudo) {
 		LocalDate now = LocalDate.now();
 		String nomeArquivo = now.toString() + "_movimentacao.txt";

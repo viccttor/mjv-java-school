@@ -1,5 +1,6 @@
 package com.mjv.openBanking.model;
 
+
 public enum TipoMovimentacao {
 
 	RECEITA("R"), DESPESA("D");
@@ -12,5 +13,13 @@ public enum TipoMovimentacao {
 		return sigla;
 	}
 	
+	public static TipoMovimentacao getServicoSigla(String sigla) {
+		for(TipoMovimentacao tm: TipoMovimentacao.values()) {
+			if(tm.getSigla().equals(sigla)) {
+				return tm;
+			}
+		}
+		return null;
+	}
 	
 }

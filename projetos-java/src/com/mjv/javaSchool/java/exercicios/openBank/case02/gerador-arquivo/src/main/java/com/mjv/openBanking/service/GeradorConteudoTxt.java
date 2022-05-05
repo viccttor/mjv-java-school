@@ -1,14 +1,15 @@
 package com.mjv.openBanking.service;
 
+import java.time.format.DateTimeFormatter;
+
 import com.mjv.openBanking.model.Movimentacao;
 
-public class GeradorConteudo {
+public class GeradorConteudoTxt {
 
 	public String gerar(Movimentacao movimentacao) {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(movimentacao.getData().toString().replaceAll("-", ""));
-		
+		sb.append(movimentacao.getData().format(DateTimeFormatter.ofPattern("yyyyMMdd")).toString().replaceAll("-", ""));
 		String cpfCnpj = movimentacao.getCpfCnpj().replaceAll("[\\D]", "");
 		Long cpfCnpjLong = Long.valueOf(cpfCnpj);
 		String cpfCnpjFormatado = String.format("%014d", cpfCnpjLong);

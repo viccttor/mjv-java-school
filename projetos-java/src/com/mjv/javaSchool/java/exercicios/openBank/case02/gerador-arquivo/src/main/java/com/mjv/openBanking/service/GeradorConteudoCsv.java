@@ -1,5 +1,5 @@
 package com.mjv.openBanking.service;
 
-public class GeradorMensagem {
+public class GeradorConteudoCsv {
 
 }

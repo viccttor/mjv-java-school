@@ -13,8 +13,8 @@ public class Movimentacao {
 
 	@Override
 	public String toString() {
-		return "Movimentacao [data=" + data + ", valor=" + valor + ", nomeCliente=" + nomeCliente + ", cpf=" + cpfCnpj
-				+ ", cnpj=" + ", estornada=" + estornada + ", tipo=" + tipo + "]";
+		return "Movimentacao [data=" + data + ", valor=" + valor + ", nomeCliente=" + nomeCliente + ", cpfCNPJ=" + cpfCnpj
+				+ ", estornada=" + estornada + ", tipo=" + tipo + "]";
 	}
 
 	public LocalDate getData() {
@@ -63,6 +63,14 @@ public class Movimentacao {
 
 	public void setTipo(TipoMovimentacao tipo) {
 		this.tipo = tipo;
+	}
+
+	public boolean setEstornada(String substring) {
+		Integer estornado = Integer.valueOf(substring);
+		if (estornado == 1) {
+			return false;
+		}
+		return false;
 	}
 
 }
