@@ -1,0 +1,58 @@
+package com.mjvSchool.java.controle;
+
+import java.util.Scanner;
+
+/**
+ * @author viccttor
+ * 
+ */
+
+/*
+ * Operações Switch
+ * 
+ * O switch é uma estrutura que é melhor utilizada na execução de casos específicos
+ * 
+ */
+
+public class SwithComBreak {
+
+	public static void main(String[] args) {
+		
+		Scanner sEntrada = new Scanner(System.in);
+		
+		int nota = 0;
+		String conceito = "";
+		System.out.print("Digite a nota de 0 a 10: ");
+		nota = sEntrada.nextInt();
+		
+		
+		switch (nota) {
+		case 10: case 9:
+			conceito = "A+";
+			break;
+		case 8: 
+		case 7:
+			conceito = "B+";
+			break;
+		case 6:	case 5:
+			conceito = "C";
+			break;
+		case 4:	case 3:
+			conceito = "D";
+			break;
+		case 2: case 1: case 0:
+			conceito = "E";
+			break;
+
+		default:
+			System.out.println("Digite uma nota válida!");
+			break;
+		}
+		
+		
+		System.out.printf("O Conceito é: %s", conceito);
+		sEntrada.close();
+
+	}
+
+}
