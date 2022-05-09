@@ -11,4 +11,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 	</properties>
+	<dependencies>
+	
+		<dependency>
+			<groupId>agua-luz</groupId>
+			<artifactId>agua-luz-meuExemplo-atracao-case02</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+	</dependencies>
 </project>
