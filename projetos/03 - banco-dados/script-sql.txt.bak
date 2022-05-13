@@ -1,0 +1,172 @@
+--Histórico de comandos
+
+--11/05/2022
+--======================================================================
+
+--Criando Data_Base
+CREATE DATABASE mjv_exercicio_db
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+COMMENT ON DATABASE mjv_exercicio_db
+    IS 'SCRIP DB EXERCICIO 03 - MJV Java School';
+------------------------------------------------------------------------
+
+--Criando tabelas
+
+--DDL
+
+create table tab_cadastro(
+	id SERIAL primary key,
+	nome varchar(50) not null,
+	email varchar(50) not null,
+	telefone varchar(14) not null,
+	logradouro varchar(30) not null,
+	numero varchar(10) not null,
+	bairro varchar(20) not null,
+	cidade varchar(20) not null,
+	estado character(2) not null,
+	valor_renda_mensal decimal(10,2) not null,
+	numero_dependentes integer,
+	estrangeiro character(1) not null
+);
+
+alter table tab_cadastro ADD COLUMN profissao VARCHAR(30) NOT NULL;
+
+ALTER TABLE tab_cadastro ADD email varchar(100) NOT NULL;
+------------------------------------------------------------------------
+
+--DML 
+
+--ALTEDANDO TABELA
+
+alter table tab_cadastro ALTER COLUMN profissao DROP NOT NULL;
+alter table tab_cadastro ALTER COLUMN valor_renda_mensal DROP NOT NULL;
+------------------------------------------------------------------------
+
+--INSERINDO DADOS NA TABELA
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('VICTOR','AA@GMAIL.COM','89787876','RUA 01','S/N','B.VELHO','CARPINA','PE',2500.00,'N','ESTUDANTE');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('HENRIQUE','AEA@GMAIL.COM','8282918211','RUA 02','S/N','B.VELHO1','CARPINA','PB',2000.00,'S','TI');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('ADRY','DRY@GMAIL.COM','8972187876','RUA 21','20','CENTRO','SÃO PAULO','SP',2500.00,'N','ENFERMEIRA');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('JULIA','JULY@GMAIL.COM','8914421876','RUA NOVA','29','B.VELHO','TUPI','SC',1500.00,'N','CAIXA');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('HEITOR','HEIOTR@GMAIL.COM','8978799876','RUA GIRA GIRA','9','CACIMBA','VILA VELHA','ES',5000.00,'S','MEDICO');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('RICARDO','RICARDO@GMAIL.COM','66678432','RUA 01','21','ALTOS','PAUDALHO','PE',3500.00,'N','ADVOGADO');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('CARLOS','CARLOS@GMAIL.COM','34677882','RUA 01','12','B.NOVO','SÃO LORENÇO','PE',5000.00,'S','ENGENHEIRO');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('VITORIA','VITORIA@GMAIL.COM','987456453','RUA 01','1200','CENTRO','CAMPINAS','RJ',7000.00,'S','MEDICO');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('ANDERSON','ANDERSON@GMAIL.COM','24547477','RUA 01','45','NACOES','BALNEARIO','SC',5000.00,'S','ENGENHEIRO');
+
+INSERT INTO tab_cadastro (nome,email,telefone,logradouro,numero,bairro,cidade,estado,valor_renda_mensal,estrangeiro,profissao)
+values
+('TALITA','TALITA@GMAIL.COM','8923123','RUA 01','28','CENTRO','CONDE','PB',500.00,'N','ESTUDANTE');
+------------------------------------------------------------------------
+
+--ALTERANDO DADOS DA TABELA, COLUNA PROFISSAO E VALOR_RENDA_MENSAL
+
+UPDATE tab_cadastro
+	SET profissao='DESENVOLVEDOR',valor_renda_mensal=6500.00
+	WHERE id=1;
+
+UPDATE tab_cadastro
+	SET profissao='TI',valor_renda_mensal=2500.00
+	WHERE id=2;
+	
+UPDATE tab_cadastro
+	SET profissao='MEDICO',valor_renda_mensal=5500.00
+	WHERE id=3;
+	
+UPDATE tab_cadastro
+	SET profissao='TI',valor_renda_mensal=2500.00
+	WHERE id=4;
+	
+UPDATE tab_cadastro
+	SET profissao='DESENVOLVEDOR',valor_renda_mensal=6500.00
+	WHERE id=5;
+	
+UPDATE tab_cadastro
+	SET profissao='MEDICO',valor_renda_mensal=5500.00
+	WHERE id=6;
+	
+UPDATE tab_cadastro
+	SET profissao='DESENVOLVEDOR',valor_renda_mensal=6500.00
+	WHERE id=7;
+	
+UPDATE tab_cadastro
+	SET profissao='TI',valor_renda_mensal=2500.00
+	WHERE id=8;
+	
+UPDATE tab_cadastro
+	SET profissao='MEDICO',valor_renda_mensal=5500.00
+	WHERE id=9;
+	
+UPDATE tab_cadastro
+	SET profissao='DESENVOLVEDOR',valor_renda_mensal=6500.00
+	WHERE id=10;
+
+------------------------------------------------------------------------
+	
+--DELETANDO TODOS OS REGISTROS QUE SÃO ESTRANGEIROS
+
+DELETE FROM public.tab_cadastro	WHERE estrangeiro='S';
+
+--ALTERANDO O CADASTRO DO ID 3
+
+UPDATE tab_cadastro 
+	SET logradouro='PRACA DA SE',numero='S/N',bairro='CENTRO',cidade='SAO PAULO',estado='SP'
+WHERE id=3;
+
+
+--DQL
+
+--LISTANDO INFORMCOES DA DB
+
+SELECT nome,email,profissao,valor_renda_mensal FROM tab_cadastro;
+
+--POR ORDENACAO - MAIOR SALARIO
+SELECT nome,email,profissao,valor_renda_mensal FROM tab_cadastro ORDER BY valor_renda_mensal DESC;
+
+--TRAZER A CONCATENACAO NOME PROFISSAO
+SELECT CONCAT('NOME E PROFISSÃO: ',nome,' - ',profissao) FROM tab_cadastro;
+
+--LISTAR PROFISSAO  E A QUANTIDADE TOTAL DA PROFISSAO
+select profissao, (COUNT(profissao)) as "QUANTIDADE" FROM tab_cadastro group by profissao ;
+
+
+--TRAZER MENOR RENDA
+SELECT * FROM tab_cadastro where valor_renda_mensal = ( select min(valor_renda_mensal) FROM tab_cadastro);
+
+
+-- TRAZER SE EXISTIR O REGISTRO Nome parecido com 'MARCOS PAULO' e 
+--Renda Mensal maior que 1200 e Renda Mensal menor ou igual que 2000 e que o Estado esteja dentro de SP, RJ, SC.
+
+select * from tab_cadastro where nome ='MARCOS PAULO'and valor_renda_mensal>1200;
+select * from tab_cadastro where valor_renda_mensal<=2000 OR estado ='SP'OR estado ='RJ' OR estado ='SC' ;
+

@@ -1,0 +1,79 @@
+Script - pedido-fast
+-------------------------------------------
+
+// Criando database
+CREATE DATABASE pedido_fast
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+-------------------------------------------
+
+// Criando Tabelas
+
+create table cliente (
+	id SERIAL PRIMARY KEY, 
+	cpf varchar (14) not null,
+	nome varchar (50) not null,
+	whatsapp bigint not null
+);
+
+create table endereco (
+	logradoutro varchar(50) not null, 
+	bairro varchar (15) not null,
+	numero varchar (50) not null,
+	cidade varchar (15) not null,
+	estado varchar (15) not null // Precisa criar para a abreviação?
+);
+
+create table produto (
+	id SERIAL PRIMARY KEY, 
+	precoVenda decimal(10,2) not null,
+	saldo decimal(10,2) not null,
+	descricao varchar (100) not null
+
+	PRIMARY KEY(id)
+);
+
+create table pedido (
+	id SERIAL, 
+	data_hora timestamp not null,
+	valor_total decimal(10,2) not null,
+	cliente_id int not null
+	criar Constraint
+);
+
+
+create table pedido_item (
+	id SERIAL, 
+	quantidade decimal(10,2) not null,
+	valor_unitario decimal(10,2) not null,
+	subtotal decimal(10,2) not null,
+	produto_id int not null,
+	pedido_id int not null,
+	PRIMARY KEY(id)
+	CONSTRAINT fk_pedido_item_produto FOREIGN KEY(produto_id) REFERENCES (id)
+	CONSTRAINT fk_pedido_item_pedido FOREIGN KEY(pedido_id) REFERENCES (id)
+);
+
+create table pedido_status (
+	id SERIAL, 
+	pedido_id int not null,
+	status varchar(15) not null
+);
+
+ALTER TABLE public.pedido_status DROP COLUMN pedido_id;
+
+
+------------------------------------
+
+// Adicionando Enuns na tabela pedido_status
+
+INSERT INTO pedido_status(status) VALUES ('NOVO');
+INSERT INTO pedido_status(status) VALUES ('PROCESSANDO');
+INSERT INTO pedido_status(status) VALUES ('ENTREGUE');
+INSERT INTO pedido_status(status) VALUES ('CANCELADO');
+
+-------------------------------------
+

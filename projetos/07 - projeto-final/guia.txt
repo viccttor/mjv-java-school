@@ -1,0 +1,15 @@
+iApoi-banking
+
+Guia
+
+- Cliente
+- Conta
+- Movimentacao(Forma, Tipo, Extrato e comprovante)
+
+Extra
+
+- Pix(Forma de movimentacao)
+- Cartoa de Crédito
+	- análise de crédito
+	- limete 
+	- fatura(navegar entre faturas, gerar fatura para pagamento, pagar fatura)

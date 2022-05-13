@@ -1,0 +1,48 @@
+Histórico de comandos
+
+11/05/2022
+===========================================
+
+// Criando Data_Base
+CREATE DATABASE iapoi_banking_db
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+COMMENT ON DATABASE iapoi_banking
+    IS 'PROJETO FINAL MJV JAVA SCHOOL';
+----------------------------------------
+
+// Criando tabelas
+
+create table cliente(
+	id SERIAL primary key,
+	nome varchar(50) not null,
+	cpfCnpj varchar(14) not null
+);
+
+create table conta(
+	id serial primary key,
+	saldo decimal not null,
+	pix integer not null,
+	conta_do int not null
+);
+
+// Criando Enum para a tabela de movimentacao
+
+create type tipo_movimentacao as enum ('RECEITA','DESPESA');
+
+create type forma_movimentacao as enum ('TRANSFERENCIA','PAGAMENTO');
+
+create table movimentecao(
+	id serial primary key,
+	tipo_movimentacao tipo_movimentacao not null,
+	forma_movimentacao forma_movimentacao not null,
+	valor decimal not null,
+	dataHora timestamp with time zone not null
+	
+);
+
+
+
