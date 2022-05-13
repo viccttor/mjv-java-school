@@ -10,7 +10,7 @@ Projetos relacionados a MJV JAVA-SCHOOL
 
 
 #### Projetos
-* Projetos java que foram abordados durante o curso
+* Projetos que foram abordados durante o curso
 * Projetos:
 
 
