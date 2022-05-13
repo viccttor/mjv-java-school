@@ -1,2 +1,3 @@
-# mjv-java-school
-Projetos relacionados a MJV JAVA-SCHOOL
+# JAVA EXPLORER
+OBS: Em estudo
+* Focado em explorar a linguagem Java
