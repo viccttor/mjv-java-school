@@ -1,2 +1,9 @@
-# mjv-java-school
-Projetos relacionados a MJV JAVA-SCHOOL
+# IAPOI BANKING
+Utilizando os conhecimentos absolvidos no curso, desenvolver uma API Rest, documentada utilizando o Swagger e com pelo menos 3 testes unitários.
+
+* Optado por criar um banco. 
+  * Objetivo:
+    * Cadastros - Cliente|Endereco, Conta
+    * Adicionar receita e despesa na conta
+    * Trasnferir de uma conta para outra 
+    * Gerar um comprovante da transação
