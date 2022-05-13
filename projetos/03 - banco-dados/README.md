@@ -2,6 +2,10 @@
 
 #### Jornada
 
+1. Criação da tabela `tab_cadastro`  contendo os campos: Id (pk-auto increment), Nome, Email, Telefone, Endereco (Logradouro, Numero, Bairro, Cidade, Estado), Profissão, Valor de Renda Mensal, Número de dependentes, Estrangeiro;
+1. Descrever como o banco de dados escolhido trata os tipos de dados em questão;
+1. Apresentar todo o conteúdo em um arquivo .sql destacando as observações como comentário no script. (ver padrão de comentários no banco de dados selecionado).
+
 ##### DDL
 
 1. Criar a tabela citada acima contemplando os campos destacados, desconsiderando inicialmente o campo `profissao`;
