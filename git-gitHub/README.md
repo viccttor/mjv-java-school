@@ -4,12 +4,12 @@ Manipulação básica no git e GitHub
 ## Conteúdo
 
 
-#### Biogradia
+#### Biografia
 
 * Criado um arquivo .txt com minha biografia, e realizado push para o repositório.
 
 
-#### images
+#### Images
 * Imagem do Readme.md principal do repositório
 
 
