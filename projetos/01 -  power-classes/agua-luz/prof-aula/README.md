@@ -1,4 +1,4 @@
-# Água / Luz - Notification - Case
+# Água / Luz - Notification  - Exemplo dado pelo professor
 
 #### Case 1
 Nossa fabrica de software foi designada a criar um aplicativo para notificar confirmação de `Contrato` de instalação de água e luz em `Cadastro`s realizados em sua cidade.
