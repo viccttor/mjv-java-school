@@ -1,6 +1,6 @@
 ## Projetos
-* Projetos que foram abordados durante o curso :
-* Projetos:
+Projetos que foram abordados durante o curso
+
 
 
     * Power Class - Três projetos
