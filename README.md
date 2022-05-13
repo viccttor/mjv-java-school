@@ -6,25 +6,32 @@ Projetos relacionados a MJV JAVA-SCHOOL
 
 #### Git e GitHub
 
-    Exercícios voltados a utilização do Git e GitHub
+* Exercícios voltados a utilização do Git e GitHub.
+
 
 #### Projetos
-  
-    Projetos java que foram abordados durante o curso.
-    
-    1 - Power Class
-          * Agua Luz
-          * Open Bank
-          * Power Class
-    2 - Collections Framework
-    3 - Banco de Dados
-    4 - Java Explorer
-    5 - Pedido Fast JDBC
-    6 - Pedido Fast Spring Boot
-    7 - Projeto Final
-      
-    
-    
-    
-    [![MJV](/git-giHub/images/mjv-social.jpeg)]
+* Projetos java que foram abordados durante o curso
+* Projetos:
+
+
+    * Power Class
+        * Open bank
+        * Agua Luz (Cases: 1 | 2 | 3)
+        * Power Class
+        
+    * Collections Framework
+
+    * Banco de Dados - PostgresSql
+
+    * Java Explorer
+
+    * Pedido Fast - JDBC
+
+    * Pedido Fast - Spring Boot
+
+    * Meu Projeto Final
+
+
+
+![MJV](https://github.com/viccttor/mjv-java-school/blob/main/git-gitHub/images/mjv-social.jpeg)
     
