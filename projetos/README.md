@@ -21,4 +21,4 @@
 
     * Pedido Fast - Spring Boot - Cadastro de cliente, produto e pedido utilizando o Sprim Boot
 
-    * Meu Projeto Final - Meu projeto final - API
+    * Meu Projeto Final - Meu projeto final - API Rest documentada com Swagger
