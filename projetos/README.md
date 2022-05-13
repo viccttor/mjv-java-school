@@ -2,7 +2,6 @@
 Projetos que foram abordados durante o curso
 
 
-
     * Power Class - Três projetos
         * Open bank - Gerar CNAB em um aqruivo .txt no layout passado
         * Agua Luz
