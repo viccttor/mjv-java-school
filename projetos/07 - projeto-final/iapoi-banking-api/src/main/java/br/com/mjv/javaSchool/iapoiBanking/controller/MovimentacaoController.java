@@ -33,13 +33,5 @@ public class MovimentacaoController {
 		return repository.findAll();
 	}
 	
-	//DELETE
-	@DeleteMapping
-	public void deletarMovimentacao(Integer id) {
-		repository.deleteById(id);
-	}
-	
-	
-	
 	
 }
