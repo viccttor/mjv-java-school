@@ -4,32 +4,35 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="movimentacao")
+@Table(name = "movimentacao")
 public class Movimentacao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name="dataHora")
+	@Column(name = "data_hora", length = 30)
 	private LocalDateTime dataHora;
 	
-	@Column(name="descricao")
+	@Column(name = "descricao", length = 255)
 	private String descricao;
 	
-	@Column(name="valor")
+	@Column(name = "valor")
 	private Double valor;
 	
-	@Column(name="forma_movimentacao")
+	@Enumerated(EnumType.STRING)
 	private FormaMovimentacao formaMovimentacao;
 
-	@Column(name="tipo_movimentacao")
+	@Enumerated(EnumType.STRING)
 	private TipoMovimentacao tipoMovimentacao;
 
 	

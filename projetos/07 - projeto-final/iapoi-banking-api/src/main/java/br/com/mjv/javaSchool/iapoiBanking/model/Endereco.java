@@ -8,29 +8,29 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="endereco_cliente")
+@Table(name = "endereco")
 public class Endereco {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name="cep")
+	@Column(name="cep_cliente", length = 10)
 	private String cep;
 	
-	@Column(name="cidade")
+	@Column(name="cidade_cliente", length = 30)
 	private String cidade;
 	
-	@Column(name="estado")
+	@Column(name="estado_cliente", length = 30)
 	private String estado;
 	
-	@Column(name="bairro")
+	@Column(name="bairro_cliente", length = 30)
 	private String bairro;
 	
-	@Column(name="logradouro")
+	@Column(name="logradouro_cliente", length = 100)
 	private String logradouro;
 	
-	@Column(name="numero")
+	@Column(name="numero_cliente", length = 10)
 	private String numero;
 
 	public String getCep() {

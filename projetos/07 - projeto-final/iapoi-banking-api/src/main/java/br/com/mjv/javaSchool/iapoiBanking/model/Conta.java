@@ -1,10 +1,10 @@
 package br.com.mjv.javaSchool.iapoiBanking.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 import javax.persistence.Table;
 
-@Entity
+@Embeddable
 @Table(name = "conta")
 public class Conta {
 	
