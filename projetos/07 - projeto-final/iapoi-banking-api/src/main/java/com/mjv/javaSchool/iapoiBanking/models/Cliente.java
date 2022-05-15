@@ -1,4 +1,4 @@
-package br.com.mjv.javaSchool.iapoiBanking.model;
+package com.mjv.javaSchool.iapoiBanking.models;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

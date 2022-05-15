@@ -1,4 +1,4 @@
-package br.com.mjv.javaSchool.iapoiBanking.controller;
+package com.mjv.javaSchool.iapoiBanking.controllers;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.mjv.javaSchool.iapoiBanking.dto.NovoCliente;
-import br.com.mjv.javaSchool.iapoiBanking.model.Cliente;
-import br.com.mjv.javaSchool.iapoiBanking.repository.ClienteRepository;
-import br.com.mjv.javaSchool.iapoiBanking.service.ClienteService;
+import com.mjv.javaSchool.iapoiBanking.dtos.NovoCliente;
+import com.mjv.javaSchool.iapoiBanking.models.Cliente;
+import com.mjv.javaSchool.iapoiBanking.repositorys.ClienteRepository;
+import com.mjv.javaSchool.iapoiBanking.services.GerarNovoClienteService;
 
 @RestController
 @RequestMapping("/cliente")
@@ -23,7 +23,7 @@ public class ClienteController {
 	private ClienteRepository repository;
 	
 	@Autowired
-	private ClienteService service;
+	private GerarNovoClienteService service;
 	
 	// CRUD
 	

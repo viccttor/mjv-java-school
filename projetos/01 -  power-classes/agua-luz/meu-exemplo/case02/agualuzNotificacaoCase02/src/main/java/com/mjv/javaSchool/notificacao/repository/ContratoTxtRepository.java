@@ -15,7 +15,7 @@ import com.mjv.javaSchool.atracao.model.TipoServico;
 
 public class ContratoTxtRepository {
 	private String nomeArquivo = "agua-luz-contratos.txt";
-
+	private String cpf;
 	public Contrato buscarContrato() {
 		Contrato contrato = new Contrato();
 		try {
@@ -48,11 +48,16 @@ public class ContratoTxtRepository {
 			Double valor = Double.valueOf(conteudo.substring(179, 186)) / 100;
 			contrato.setValor(valor);
 			contrato.setTipoNotificacao(TipoNotificacao.getTipoNotificacao(conteudo.substring(186, 187)));
-
+			cpf = conteudo.substring(0, 11);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return contrato;
 	}
+	public String getCpf() {
+		return cpf;
+	}
+	
+	
 
 }

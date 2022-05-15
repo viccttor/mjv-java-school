@@ -1,8 +1,8 @@
-package br.com.mjv.javaSchool.iapoiBanking.repository;
+package com.mjv.javaSchool.iapoiBanking.repositorys;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.mjv.javaSchool.iapoiBanking.model.Cliente;
+import com.mjv.javaSchool.iapoiBanking.models.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 

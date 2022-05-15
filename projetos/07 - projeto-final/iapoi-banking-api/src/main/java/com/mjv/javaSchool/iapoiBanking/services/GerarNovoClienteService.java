@@ -1,18 +1,18 @@
-package br.com.mjv.javaSchool.iapoiBanking.service;
+package com.mjv.javaSchool.iapoiBanking.services;
 
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.mjv.javaSchool.iapoiBanking.dto.NovoCliente;
-import br.com.mjv.javaSchool.iapoiBanking.model.Cliente;
-import br.com.mjv.javaSchool.iapoiBanking.model.Conta;
-import br.com.mjv.javaSchool.iapoiBanking.model.Endereco;
-import br.com.mjv.javaSchool.iapoiBanking.repository.ClienteRepository;
+import com.mjv.javaSchool.iapoiBanking.dtos.NovoCliente;
+import com.mjv.javaSchool.iapoiBanking.models.Cliente;
+import com.mjv.javaSchool.iapoiBanking.models.Conta;
+import com.mjv.javaSchool.iapoiBanking.models.Endereco;
+import com.mjv.javaSchool.iapoiBanking.repositorys.ClienteRepository;
 
 @Service
-public class ClienteService {
+public class GerarNovoClienteService {
 	
 	@Autowired
 	private ClienteRepository repository;

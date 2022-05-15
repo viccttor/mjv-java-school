@@ -22,10 +22,9 @@ public class Mensagem {
 		sb.append(String.format("\n° Cidade: %s / %s", cliente.getEndereco().getCidade(),cliente.getEndereco().getEstado()));
 		String cepFormatado = FormatadorUtil.formatarCep(cliente.getEndereco().getCep());
 		sb.append(String.format("\n° Cep: %s", cepFormatado));
-		System.out.println(sb.toString());
-		
 		conteudo = sb.toString();
 		
+		System.out.println(conteudo);
 	}
 	
 	public String getConteudo() {

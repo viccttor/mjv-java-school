@@ -1,6 +1,6 @@
-package br.com.mjv.javaSchool.iapoiBanking.dto;
+package com.mjv.javaSchool.iapoiBanking.dtos;
 
-import br.com.mjv.javaSchool.iapoiBanking.model.Endereco;
+import com.mjv.javaSchool.iapoiBanking.models.Endereco;
 
 public class NovoCliente {
 	

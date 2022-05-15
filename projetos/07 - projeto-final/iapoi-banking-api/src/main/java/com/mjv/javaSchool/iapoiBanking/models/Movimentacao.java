@@ -1,4 +1,4 @@
-package br.com.mjv.javaSchool.iapoiBanking.model;
+package com.mjv.javaSchool.iapoiBanking.models;
 
 import java.time.LocalDateTime;
 
@@ -28,6 +28,9 @@ public class Movimentacao {
 	
 	@Column(name = "valor")
 	private Double valor;
+	
+	@Column(name = "conta_id")
+	private Integer idConta;
 	
 	@Enumerated(EnumType.STRING)
 	private FormaMovimentacao formaMovimentacao;
@@ -65,6 +68,12 @@ public class Movimentacao {
 	}
 	public void setFormaMovimentacao(FormaMovimentacao formaMovimentacao) {
 		this.formaMovimentacao = formaMovimentacao;
+	}
+	public Integer getIdConta() {
+		return idConta;
+	}
+	public void setIdConta(Integer idConta) {
+		this.idConta = idConta;
 	}
 	
 	

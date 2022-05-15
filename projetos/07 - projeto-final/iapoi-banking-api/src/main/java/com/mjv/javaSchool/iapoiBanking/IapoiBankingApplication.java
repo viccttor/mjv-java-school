@@ -1,4 +1,4 @@
-package br.com.mjv.javaSchool.iapoiBanking;
+package com.mjv.javaSchool.iapoiBanking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,8 @@ public class IapoiBankingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IapoiBankingApplication.class, args);
+		
 	}
+	
 
 }
