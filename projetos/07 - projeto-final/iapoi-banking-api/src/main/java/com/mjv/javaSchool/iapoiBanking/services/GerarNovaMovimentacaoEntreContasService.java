@@ -22,7 +22,7 @@ public class GerarNovaMovimentacaoEntreContasService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-	public void GerarNovaMovimentacao(NovaMovimentacaoEntreContas novaMovimentacaoEntreContas) {
+	public void GerarNovaMovimentacaoEntreContas(NovaMovimentacaoEntreContas novaMovimentacaoEntreContas) {
 		
 		Cliente clientePagador = clienteRepository.findById(novaMovimentacaoEntreContas.getIdContaPagadora())
 				.orElse(null);
