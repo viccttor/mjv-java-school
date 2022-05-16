@@ -1,6 +1,7 @@
 package com.mjv.javaSchool.iapoiBanking.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,6 @@ import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacaoEntreContas;
 import com.mjv.javaSchool.iapoiBanking.models.Movimentacao;
 import com.mjv.javaSchool.iapoiBanking.repositorys.MovimentacaoRepository;
-import com.mjv.javaSchool.iapoiBanking.services.GerarNovaMovimentacaoEntreContasService;
 import com.mjv.javaSchool.iapoiBanking.services.GerarNovaMovimentacaoService;
 
 @RestController
@@ -26,9 +26,6 @@ public class MovimentacaoController {
 	@Autowired
 	private GerarNovaMovimentacaoService service;
 	
-	@Autowired
-	private GerarNovaMovimentacaoEntreContasService serviceEntreContas;
-
 	//POST
 	
 	@PostMapping
@@ -38,7 +35,7 @@ public class MovimentacaoController {
 	
 	@PostMapping("{id}")
 	public void gerarMovimentacao(@RequestBody NovaMovimentacaoEntreContas movimentacao) {
-		serviceEntreContas.GerarNovaMovimentacaoEntreContas(movimentacao);;
+		service.GerarNovaMovimentacaoEntreContas(movimentacao);;
 	}
 	
 	//GET
@@ -48,8 +45,8 @@ public class MovimentacaoController {
 		return repository.findAll();
 	}
 	
-//	@GetMapping("/{idConta}")
-//	public List<Movimentacao> findAll(Integer idConta){
-//		return repository.buscarMovimentacaoIdConta(idConta);
-//	}
+	@GetMapping("/{idConta}")
+	public Optional<Movimentacao> findAll(Integer idConta){
+		return repository.findById(idConta);
+	}
 }
