@@ -5,6 +5,9 @@ Utilizando os conhecimentos absorvidos no curso, desenvolver uma API Rest, docum
 * Optado por criar um banco. 
   * Objetivo:
     * Cadastros - Cliente|Endereco, Conta
+      * Alteracao de endereco 
     * Adicionar receita e despesa na conta
-    * Trasnferir de uma conta para outra 
-    * Gerar um comprovante da transação
+    * Realiar um saque
+    * Trasnferir de uma conta para outra
+    * Listar - Contas, movimentações e as movimentações por cliente 
+    * Extra - Gerar um comprovante da transação e uma arquivo com as movimentações por conta
