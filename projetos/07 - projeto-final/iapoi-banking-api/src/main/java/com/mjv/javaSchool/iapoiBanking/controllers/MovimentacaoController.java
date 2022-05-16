@@ -1,7 +1,6 @@
 package com.mjv.javaSchool.iapoiBanking.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,8 +44,8 @@ public class MovimentacaoController {
 		return repository.findAll();
 	}
 	
-	@GetMapping("/{idConta}")
-	public Optional<Movimentacao> findAll(Integer idConta){
-		return repository.findById(idConta);
+	@GetMapping("/{id}")
+	public List<Movimentacao> listarMovimentacaoPorConta(Integer id){
+		return repository.findByIdConta(id);
 	}
 }
