@@ -33,10 +33,22 @@ public class ClienteController {
 		service.cadastraNovoCliente(cliente);
 	}
 	
-	// Buscar
+	// GET
+	
 	@GetMapping
 	public List<Cliente> listarCliente(){
 		return repository.findAll();
+	}
+	
+//	@GetMapping("/{id}")
+//	public Optional<Cliente> buscarCliente(Integer id){
+//		return repository.findById(id);
+//	}
+	
+	@GetMapping("/{id}")
+	public Double saldoCliente(Integer id){
+		Cliente conta = service.buscarSaldo(id);
+		return conta.getConta().getSaldo();
 	}
 	
 	// Alterar

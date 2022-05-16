@@ -38,4 +38,8 @@ public class GerarNovoClienteService {
 		
 		repository.save(cliente);
 	}
+	
+	public Cliente buscarSaldo(Integer id) {
+		return repository.getById(id);
+	}
 }
