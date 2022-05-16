@@ -1,6 +1,7 @@
 package com.mjv.javaSchool.iapoiBanking.services;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,12 +13,12 @@ import com.mjv.javaSchool.iapoiBanking.models.Endereco;
 import com.mjv.javaSchool.iapoiBanking.repositorys.ClienteRepository;
 
 @Service
-public class GerarNovoClienteService {
+public class ClienteService {
 	
 	@Autowired
 	private ClienteRepository repository;
 	
-	public void cadastraNovoCliente(NovoCliente novoCliente) {
+	public void cadastrarNovoCliente(NovoCliente novoCliente) {
 		Cliente cliente = new Cliente();
 		cliente.setNome(novoCliente.getNome());
 		cliente.setCpf(novoCliente.getCpf());
@@ -39,7 +40,21 @@ public class GerarNovoClienteService {
 		repository.save(cliente);
 	}
 	
-	public Cliente buscarSaldo(Integer id) {
-		return repository.getById(id);
+	public void alterarCliente(NovoCliente cliente) {
+		
 	}
+	
+	public List<Cliente> lisarClientes(){
+		return repository.findAll();
+	}
+	
+	public Double buscarSaldoCliente(Integer id) {
+		Conta conta = repository.getById(id).getConta();
+		return conta.getSaldo();
+	}
+	
+	public List<Cliente> buscarCliente(String cpf){
+		return repository.findByCpf(cpf);
+	}
+	
 }

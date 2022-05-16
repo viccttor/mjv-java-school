@@ -32,7 +32,7 @@ public class MovimentacaoController {
 		service.GerarNovaMovimentacao(movimentacao);;
 	}
 	
-	@PostMapping("{id}")
+	@PostMapping("{conta_id}")
 	public void gerarMovimentacao(@RequestBody NovaMovimentacaoEntreContas movimentacao) {
 		service.GerarNovaMovimentacaoEntreContas(movimentacao);;
 	}

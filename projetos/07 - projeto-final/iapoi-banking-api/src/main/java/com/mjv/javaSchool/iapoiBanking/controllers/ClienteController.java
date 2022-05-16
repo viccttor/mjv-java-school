@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mjv.javaSchool.iapoiBanking.dtos.NovoCliente;
 import com.mjv.javaSchool.iapoiBanking.models.Cliente;
 import com.mjv.javaSchool.iapoiBanking.repositorys.ClienteRepository;
-import com.mjv.javaSchool.iapoiBanking.services.GerarNovoClienteService;
+import com.mjv.javaSchool.iapoiBanking.services.ClienteService;
 
 @RestController
 @RequestMapping("/cliente")
@@ -23,41 +23,40 @@ public class ClienteController {
 	private ClienteRepository repository;
 	
 	@Autowired
-	private GerarNovoClienteService service;
+	private ClienteService service;
 	
 	// CRUD
 	
-	// Gravar
+	// POST
 	@PostMapping
 	public void cadastrarCliente(@RequestBody NovoCliente cliente) {
-		service.cadastraNovoCliente(cliente);
+		service.cadastrarNovoCliente(cliente);
 	}
 	
 	// GET
 	
 	@GetMapping
-	public List<Cliente> listarCliente(){
-		return repository.findAll();
+	public List<Cliente> listarClientes(){
+		return service.lisarClientes();
 	}
 	
-//	@GetMapping("/{id}")
-//	public Optional<Cliente> buscarCliente(Integer id){
-//		return repository.findById(id);
-//	}
-	
-	@GetMapping("/{id}")
+	@GetMapping("/{saldo_cliente}")
 	public Double saldoCliente(Integer id){
-		Cliente conta = service.buscarSaldo(id);
-		return conta.getConta().getSaldo();
+		return service.buscarSaldoCliente(id);
 	}
 	
-	// Alterar
+	@GetMapping("conta/{cpf}")
+	public List<Cliente> buscarCliente(String cpf){
+		return service.buscarCliente(cpf);
+	}
+
+	// PUT
 //	@PutMapping
 //	public void alterarCliente(Integer id) {
 //		repository.
 //	}
 	
-	// Deletar
+	// DELETE
 	@DeleteMapping
 	public void deletarCliente(Integer id) {
 		repository.deleteById(id);
