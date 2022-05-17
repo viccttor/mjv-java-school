@@ -13,7 +13,7 @@ import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacaoEntreContas;
 import com.mjv.javaSchool.iapoiBanking.models.Movimentacao;
 import com.mjv.javaSchool.iapoiBanking.repositorys.MovimentacaoRepository;
-import com.mjv.javaSchool.iapoiBanking.services.GerarNovaMovimentacaoService;
+import com.mjv.javaSchool.iapoiBanking.services.MovimentacaoService;
 
 @RestController
 @RequestMapping("/movimentacao")
@@ -23,7 +23,7 @@ public class MovimentacaoController {
 	private MovimentacaoRepository repository;
 	
 	@Autowired
-	private GerarNovaMovimentacaoService service;
+	private MovimentacaoService service;
 	
 	//POST
 	

@@ -14,7 +14,7 @@ public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(name="cep_cliente", length = 10)
 	private String cep;
 	
@@ -32,7 +32,7 @@ public class Endereco {
 	
 	@Column(name="numero_cliente", length = 10)
 	private String numero;
-
+	
 	public String getCep() {
 		return cep;
 	}
@@ -81,5 +81,12 @@ public class Endereco {
 		this.numero = numero;
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacaoEntreContas;
+import com.mjv.javaSchool.iapoiBanking.dtos.SaqueCliente;
 import com.mjv.javaSchool.iapoiBanking.models.Cliente;
 import com.mjv.javaSchool.iapoiBanking.models.FormaMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.models.Movimentacao;
@@ -15,10 +16,10 @@ import com.mjv.javaSchool.iapoiBanking.repositorys.ClienteRepository;
 import com.mjv.javaSchool.iapoiBanking.repositorys.MovimentacaoRepository;
 
 @Service
-public class GerarNovaMovimentacaoService {
+public class MovimentacaoService {
 
 	@Autowired
-	private MovimentacaoRepository repository;
+	private MovimentacaoRepository movimentacaoRepository;
 
 	@Autowired
 	private ClienteRepository clienteRepository;
@@ -43,7 +44,7 @@ public class GerarNovaMovimentacaoService {
 		}
 
 		clienteRepository.save(cliente);
-		repository.save(movimentacao);
+		movimentacaoRepository.save(movimentacao);
 	}
 
 	public void GerarNovaMovimentacaoEntreContas(NovaMovimentacaoEntreContas novaMovimentacaoEntreContas) {
@@ -68,7 +69,7 @@ public class GerarNovaMovimentacaoService {
 			clientePagador.getConta().setSaldo(clientePagador.getConta().getSaldo() - valor);
 			movimentacaoPagador.setIdConta(novaMovimentacaoEntreContas.getIdContaPagadora());
 			clienteRepository.save(clientePagador);
-			repository.save(movimentacaoPagador);
+			movimentacaoRepository.save(movimentacaoPagador);
 
 			Movimentacao movimentacaoRecebedor = new Movimentacao();
 			movimentacaoRecebedor.setDataHora(dataHora);
@@ -79,9 +80,30 @@ public class GerarNovaMovimentacaoService {
 			clienteRecebedor.getConta().setSaldo(clienteRecebedor.getConta().getSaldo() + valor);
 			movimentacaoRecebedor.setIdConta(novaMovimentacaoEntreContas.getIdContaRecebedora());
 			clienteRepository.save(clienteRecebedor);
-			repository.save(movimentacaoRecebedor);
+			movimentacaoRepository.save(movimentacaoRecebedor);
 		}
 
 	}
-	
+
+	public void saque(SaqueCliente saque) {
+		Cliente cliente = clienteRepository.findById(saque.getClienteId()).orElse(null);
+		Double valorSaque = saque.getValorSaque();
+		Double saldo = cliente.getConta().getSaldo();
+		Double resultado = saldo - valorSaque;
+
+		if (cliente != null && saque.getValorSaque() >= 0 && resultado >= 0) {
+			Movimentacao movimentacaoSaque = new Movimentacao();
+			movimentacaoSaque.setDataHora(LocalDateTime.now());
+			movimentacaoSaque.setDescricao("SAQUE");
+			movimentacaoSaque.setFormaMovimentacao(FormaMovimentacao.SAQUE);
+			movimentacaoSaque.setIdConta(saque.getClienteId());
+			movimentacaoSaque.setTipoMovimentacao(TipoMovimentacao.DESPESA);
+			movimentacaoSaque.setValor(valorSaque * -1);
+			cliente.getConta().setSaldo(resultado);
+			clienteRepository.save(cliente);
+			movimentacaoRepository.save(movimentacaoSaque);
+
+		}
+	}
+
 }

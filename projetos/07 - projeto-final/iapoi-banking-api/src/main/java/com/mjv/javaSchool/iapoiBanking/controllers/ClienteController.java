@@ -50,12 +50,7 @@ public class ClienteController {
 		return service.buscarCliente(cpf);
 	}
 
-	// PUT
-//	@PutMapping
-//	public void alterarCliente(Integer id) {
-//		repository.
-//	}
-	
+
 	// DELETE
 	@DeleteMapping
 	public void deletarCliente(Integer id) {

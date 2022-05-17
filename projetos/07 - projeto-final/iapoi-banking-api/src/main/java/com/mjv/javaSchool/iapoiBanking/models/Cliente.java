@@ -24,7 +24,7 @@ public class Cliente {
 	
 	@Column(name="cpf", length = 11)
 	private String cpf;
-	
+
 	@Embedded
 	private Conta conta;
 	
