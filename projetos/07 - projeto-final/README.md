@@ -11,15 +11,17 @@ Utilizando os conhecimentos absorvidos no curso, desenvolver uma API Rest, docum
 
 * OBS: Em desenvolvimento
   * Objetivo:
-    * Cadastros - Cliente|Endereco, Conta
+    * Cadastros - Cliente (endereco e Conta)
       * Alteracao de endereco 
     * Adicionar receita e despesa na conta
-       * Realizar saque
+       * Receita
+       * Despesa
+       * Pagamento
+       * Despósito
+       * Saque
        * Trasnferência entre contas
-    * Listar - Contas, movimentações e as movimentações por cliente 
-    
-
-
+    * Listar - Conta, saldo, cliente e movimentações
+       * Buscas por id 
 ###### Tecnologias
 
 * Java
@@ -27,6 +29,38 @@ Utilizando os conhecimentos absorvidos no curso, desenvolver uma API Rest, docum
 * Postgre SQL
 * Spring Boot
 * Swagger
+
+
+
+### Endereco Controller
+
+|Rest | URL |Função |
+------ | ------- | ------- |
+PUT   | /endereco/{alterar_endereco} | Alteração de endereço cadastrado |
+GET   | /endereco | Listar todos os endereços |
+GET   | /endereco/{id} | Busca de endereço por id |
+
+### Movimentação Controller
+
+|Rest | URL |Função |
+------ | ------- | ------- |
+GET    | /movimentacao | Listar todas as movimentações |
+POST   | /movimentacao | Gerar uma nova movimentação |
+POST   | /movimentacao/{conta_id} | Gerar uma transferência entre contas |
+POST   | /movimentacao/cliente/{saque} | Realizar um Saque |
+GET    | /movimentacao/{id} | Listar movimentações por id |
+
+### Cliente Controller
+
+|Rest |  URL |Função |
+------ | ------- | ------- |
+GET    | /cliente | Listar todos os clientes |
+POST   | /cliente | Cadastrar um novo cliente |
+DELETE | /cliente | Deletar um cliente |
+GET    | /cliente/{saldo} | Mostrar saldo em conta |
+GET    | /cliente/conta/{cpf} | Buscar cliente por cpf |
+
+
 
 ###### Apresentação
 
@@ -87,25 +121,6 @@ Utilizando os conhecimentos absorvidos no curso, desenvolver uma API Rest, docum
     "numero": "45"
   }
 }
-```
-
-* Cadastrando Cliente - 04
-
-```
-{
-  "nome": "string",
-  "cpf": "string",
-  "endereco": {
-    "id": 0,
-    "cep": "string",
-    "cidade": "string",
-    "estado": "string",
-    "bairro": "string",
-    "logradouro": "string",
-    "numero": "string"
-  }
-}
-
 ```
 
 ###### Deletar
@@ -193,7 +208,7 @@ id: 4
 ```
 {
   "idConta": 2,
-  "descricao": "NOVO CONTRATO DE INTERNE",
+  "descricao": "NOVO CONTRATO DE INTERNET",
   "valor": 2000.00,
   "formaMovimentacao": "TRANSFERENCIA",
   "tipoMovimentacao": "DESPESA"
@@ -218,7 +233,7 @@ id: 4
 
 ```
 {
-  "valor": 1000.00,
+  "valor": 1001.00,
   "idContaPagadora": 1,
   "idContaRecebedora": 2,
   "descricaoPagador": "DEVOLVENDO DINHEIRO EMPRESTADO - GLEYSON",
@@ -251,9 +266,6 @@ id: 4
   CLiente 01 | cpf: 11111111111
   CLiente 02 | cpf: 22222222222
   CLiente 03 | cpf: 33333333333
-  cpf - 11111111111
-  cpf - 22222222222
-
 ```
 
 ###### SAQUE
