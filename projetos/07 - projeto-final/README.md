@@ -247,7 +247,6 @@ id: 3
 ```
   CLiente 01 - id: 1
   CLiente 02 - id: 2
-  CLiente 03 - id: 3
 
 ```
 
@@ -256,7 +255,6 @@ id: 3
 ```
   CLiente 01 - id: 1
   CLiente 02 - id: 2
-  CLiente 03 - id: 3
 
 ```
 
@@ -265,7 +263,6 @@ id: 3
 ```
   CLiente 01 | cpf: 11111111111
   CLiente 02 | cpf: 22222222222
-  CLiente 03 | cpf: 33333333333
 ```
 
 ###### SAQUE
