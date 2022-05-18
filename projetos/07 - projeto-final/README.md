@@ -22,6 +22,7 @@ Utilizando os conhecimentos absorvidos no curso, desenvolver uma API Rest, docum
        * Trasnferência entre contas
     * Listar - Conta, saldo, cliente e movimentações
        * Buscas por id 
+       
 ###### Tecnologias
 
 * Java
@@ -30,7 +31,9 @@ Utilizando os conhecimentos absorvidos no curso, desenvolver uma API Rest, docum
 * Spring Boot
 * Swagger
 
+### Diagrama de classes
 
+![MJV](https://github.com/viccttor/mjv-java-school/blob/main/git-gitHub/images/diagrama-classes-projeto-final.png)
 
 ### Endereco Controller
 
