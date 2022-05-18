@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacaoEntreContas;
-import com.mjv.javaSchool.iapoiBanking.dtos.SaqueCliente;
+import com.mjv.javaSchool.iapoiBanking.dtos.NovoSaqueCliente;
 import com.mjv.javaSchool.iapoiBanking.models.Cliente;
+import com.mjv.javaSchool.iapoiBanking.models.Conta;
 import com.mjv.javaSchool.iapoiBanking.models.FormaMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.models.Movimentacao;
 import com.mjv.javaSchool.iapoiBanking.models.TipoMovimentacao;
@@ -23,7 +24,7 @@ public class MovimentacaoService {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
-
+	
 	public void GerarNovaMovimentacao(NovaMovimentacao novaMovimentacao) {
 
 		Movimentacao movimentacao = new Movimentacao();
@@ -57,12 +58,13 @@ public class MovimentacaoService {
 		if (clientePagador != null && clienteRecebedor != null) {
 
 			LocalDateTime dataHora = LocalDateTime.now();
-			String descricao = novaMovimentacaoEntreContas.getDescricao();
+			String descricaoPagador = novaMovimentacaoEntreContas.getDescricaoPagador();
+			String descricaoRecebedor = novaMovimentacaoEntreContas.getDescricaoRecebedor();
 			Double valor = novaMovimentacaoEntreContas.getValor();
 
 			Movimentacao movimentacaoPagador = new Movimentacao();
 			movimentacaoPagador.setDataHora(dataHora);
-			movimentacaoPagador.setDescricao(descricao);
+			movimentacaoPagador.setDescricao(descricaoPagador);
 			movimentacaoPagador.setFormaMovimentacao(FormaMovimentacao.TRANSFERENCIA);
 			movimentacaoPagador.setTipoMovimentacao(TipoMovimentacao.DESPESA);
 			movimentacaoPagador.setValor(valor * -1);
@@ -73,7 +75,7 @@ public class MovimentacaoService {
 
 			Movimentacao movimentacaoRecebedor = new Movimentacao();
 			movimentacaoRecebedor.setDataHora(dataHora);
-			movimentacaoRecebedor.setDescricao(descricao);
+			movimentacaoRecebedor.setDescricao(descricaoRecebedor);
 			movimentacaoRecebedor.setFormaMovimentacao(FormaMovimentacao.TRANSFERENCIA);
 			movimentacaoRecebedor.setTipoMovimentacao(TipoMovimentacao.RECEITA);
 			movimentacaoRecebedor.setValor(valor);
@@ -83,27 +85,6 @@ public class MovimentacaoService {
 			movimentacaoRepository.save(movimentacaoRecebedor);
 		}
 
-	}
-
-	public void saque(SaqueCliente saque) {
-		Cliente cliente = clienteRepository.findById(saque.getClienteId()).orElse(null);
-		Double valorSaque = saque.getValorSaque();
-		Double saldo = cliente.getConta().getSaldo();
-		Double resultado = saldo - valorSaque;
-
-		if (cliente != null && saque.getValorSaque() >= 0 && resultado >= 0) {
-			Movimentacao movimentacaoSaque = new Movimentacao();
-			movimentacaoSaque.setDataHora(LocalDateTime.now());
-			movimentacaoSaque.setDescricao("SAQUE");
-			movimentacaoSaque.setFormaMovimentacao(FormaMovimentacao.SAQUE);
-			movimentacaoSaque.setIdConta(saque.getClienteId());
-			movimentacaoSaque.setTipoMovimentacao(TipoMovimentacao.DESPESA);
-			movimentacaoSaque.setValor(valorSaque * -1);
-			cliente.getConta().setSaldo(resultado);
-			clienteRepository.save(cliente);
-			movimentacaoRepository.save(movimentacaoSaque);
-
-		}
 	}
 
 }

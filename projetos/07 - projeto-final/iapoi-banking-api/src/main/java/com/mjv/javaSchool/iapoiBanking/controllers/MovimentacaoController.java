@@ -25,27 +25,28 @@ public class MovimentacaoController {
 	@Autowired
 	private MovimentacaoService service;
 	
-	//POST
-	
+	//@RequestMapping(method = RequestMethod.POST, value = "/movimentacao")
 	@PostMapping
 	public void gerarMovimentacao(@RequestBody NovaMovimentacao movimentacao) {
 		service.GerarNovaMovimentacao(movimentacao);;
 	}
 	
 	@PostMapping("{conta_id}")
+	//@RequestMapping(method = RequestMethod.POST, value = "/movimentacao/Movimentacao_Entre_Contas")
 	public void gerarMovimentacao(@RequestBody NovaMovimentacaoEntreContas movimentacao) {
 		service.GerarNovaMovimentacaoEntreContas(movimentacao);;
 	}
 	
-	//GET
-	
 	@GetMapping
+	//@RequestMapping(method = RequestMethod.GET, value = "/movimentacao")
 	public List<Movimentacao> listarMovimentacao(){
 		return repository.findAll();
 	}
 	
 	@GetMapping("/{id}")
+	//@RequestMapping(method = RequestMethod.GET, value = "/movimentacao/{Movimentacao_Por_Conta}")
 	public List<Movimentacao> listarMovimentacaoPorConta(Integer id){
 		return repository.findByIdConta(id);
 	}
+	
 }

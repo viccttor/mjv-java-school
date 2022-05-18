@@ -5,7 +5,8 @@ public class NovaMovimentacaoEntreContas {
 	private Double valor;
 	private Integer idContaPagadora;
 	private Integer idContaRecebedora;
-	private String descricao;
+	private String descricaoPagador;
+	private String descricaoRecebedor;
 
 	public Integer getIdContaPagadora() {
 		return idContaPagadora;
@@ -23,12 +24,20 @@ public class NovaMovimentacaoEntreContas {
 		this.idContaRecebedora = idContaRecebedora;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescricaoPagador() {
+		return descricaoPagador;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescricaoPagador(String descricaoPagador) {
+		this.descricaoPagador = descricaoPagador;
+	}
+
+	public String getDescricaoRecebedor() {
+		return descricaoRecebedor;
+	}
+
+	public void setDescricaoRecebedor(String descricaoRecebedor) {
+		this.descricaoRecebedor = descricaoRecebedor;
 	}
 
 	public Double getValor() {

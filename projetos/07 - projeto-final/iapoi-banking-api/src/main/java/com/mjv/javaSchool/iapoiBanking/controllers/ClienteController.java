@@ -24,23 +24,18 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteService service;
-	
-	// CRUD
-	
-	// POST
+
 	@PostMapping
 	public void cadastrarCliente(@RequestBody NovoCliente cliente) {
 		service.cadastrarNovoCliente(cliente);
 	}
-	
-	// GET
 	
 	@GetMapping
 	public List<Cliente> listarClientes(){
 		return service.lisarClientes();
 	}
 	
-	@GetMapping("/{saldo_cliente}")
+	@GetMapping("/{saldo}")
 	public Double saldoCliente(Integer id){
 		return service.buscarSaldoCliente(id);
 	}
@@ -50,12 +45,13 @@ public class ClienteController {
 		return service.buscarCliente(cpf);
 	}
 
-
-	// DELETE
 	@DeleteMapping
 	public void deletarCliente(Integer id) {
 		repository.deleteById(id);
 	}
 	
+	@PostMapping("/{saque}")
+	public void saque(Integer id, Double saque) {
+		service.saque(id,saque);	} 
 	
 }
