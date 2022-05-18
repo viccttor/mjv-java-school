@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacaoEntreContas;
-import com.mjv.javaSchool.iapoiBanking.dtos.NovoSaqueCliente;
 import com.mjv.javaSchool.iapoiBanking.models.Cliente;
 import com.mjv.javaSchool.iapoiBanking.models.Conta;
 import com.mjv.javaSchool.iapoiBanking.models.FormaMovimentacao;
@@ -85,6 +84,31 @@ public class MovimentacaoService {
 			movimentacaoRepository.save(movimentacaoRecebedor);
 		}
 
+	}
+	
+	public void saque(Integer id, Double saque) {
+		
+		Cliente cliente = clienteRepository.findById(id).orElse(null);
+		Conta conta = cliente.getConta();
+		Double valorSaque = saque;
+		Double saldo = conta.getSaldo();
+		Double resultado = saldo - valorSaque;
+
+		if (cliente != null && saque >= 0 && resultado >= 0) {
+			Movimentacao movimentacaoSaque = new Movimentacao();
+			movimentacaoSaque.setDataHora(LocalDateTime.now());
+			movimentacaoSaque.setDescricao("SAQUE EM CAIXA ELETRÔNICO");
+			movimentacaoSaque.setFormaMovimentacao(FormaMovimentacao.SAQUE);
+			movimentacaoSaque.setIdConta(cliente.getId());
+			movimentacaoSaque.setTipoMovimentacao(TipoMovimentacao.DESPESA);
+			movimentacaoSaque.setValor(valorSaque * -1);
+			
+			cliente.getConta().setSaldo(resultado);
+			
+			clienteRepository.save(cliente);
+			movimentacaoRepository.save(movimentacaoSaque);
+
+		}
 	}
 
 }

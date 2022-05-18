@@ -1,6 +1,5 @@
 package com.mjv.javaSchool.iapoiBanking.services;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -11,21 +10,14 @@ import com.mjv.javaSchool.iapoiBanking.dtos.NovoCliente;
 import com.mjv.javaSchool.iapoiBanking.models.Cliente;
 import com.mjv.javaSchool.iapoiBanking.models.Conta;
 import com.mjv.javaSchool.iapoiBanking.models.Endereco;
-import com.mjv.javaSchool.iapoiBanking.models.FormaMovimentacao;
-import com.mjv.javaSchool.iapoiBanking.models.Movimentacao;
-import com.mjv.javaSchool.iapoiBanking.models.TipoMovimentacao;
 import com.mjv.javaSchool.iapoiBanking.repositorys.ClienteRepository;
-import com.mjv.javaSchool.iapoiBanking.repositorys.MovimentacaoRepository;
 
 @Service
 public class ClienteService {
 	
 	@Autowired
 	private ClienteRepository repository;
-	
-	@Autowired
-	private MovimentacaoRepository movimentacaoRepository;
-	
+
 	public void cadastrarNovoCliente(NovoCliente novoCliente) {
 		Cliente cliente = new Cliente();
 		cliente.setNome(novoCliente.getNome());
@@ -62,28 +54,4 @@ public class ClienteService {
 		return repository.findByCpf(cpf);
 	}
 	
-	public void saque(Integer id, Double saque) {
-		
-		Cliente cliente = repository.findById(id).orElse(null);
-		Conta conta = cliente.getConta();
-		Double valorSaque = saque;
-		Double saldo = conta.getSaldo();
-		Double resultado = saldo - valorSaque;
-
-		if (cliente != null && saque >= 0 && resultado >= 0) {
-			Movimentacao movimentacaoSaque = new Movimentacao();
-			movimentacaoSaque.setDataHora(LocalDateTime.now());
-			movimentacaoSaque.setDescricao("SAQUE EM CAIXA ELETRÔNICO");
-			movimentacaoSaque.setFormaMovimentacao(FormaMovimentacao.SAQUE);
-			movimentacaoSaque.setIdConta(cliente.getId());
-			movimentacaoSaque.setTipoMovimentacao(TipoMovimentacao.DESPESA);
-			movimentacaoSaque.setValor(valorSaque * -1);
-			
-			cliente.getConta().setSaldo(resultado);
-			
-			repository.save(cliente);
-			movimentacaoRepository.save(movimentacaoSaque);
-
-		}
-	}
 }

@@ -50,8 +50,4 @@ public class ClienteController {
 		repository.deleteById(id);
 	}
 	
-	@PostMapping("/{saque}")
-	public void saque(Integer id, Double saque) {
-		service.saque(id,saque);	} 
-	
 }
