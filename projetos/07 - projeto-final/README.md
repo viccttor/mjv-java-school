@@ -125,10 +125,10 @@ GET    | /cliente/conta/{cpf} | Buscar cliente por cpf |
 
 ###### Deletar
 
-* Deletendo o cliente - 04
+* Deletendo o cliente - 03
 
 ```
-id: 4
+id: 3
 
 ```
 
