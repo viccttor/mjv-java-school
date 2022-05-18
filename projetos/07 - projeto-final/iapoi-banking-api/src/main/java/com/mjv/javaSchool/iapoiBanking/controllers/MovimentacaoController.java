@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mjv.javaSchool.iapoiBanking.dtos.NovaMovimentacao;
@@ -50,8 +49,7 @@ public class MovimentacaoController {
 		return repository.findByIdConta(id);
 	}
 	
-	//@PostMapping("cliente/{saque}")
-	@RequestMapping(method = RequestMethod.POST, path = "cliente/{saque}")
+	@PostMapping("cliente/{saque}")
 	public void saque(Integer id, Double saque) {
 		service.saque(id,saque);	
 	} 
