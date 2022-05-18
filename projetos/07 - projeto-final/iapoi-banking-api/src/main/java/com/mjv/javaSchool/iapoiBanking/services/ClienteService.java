@@ -11,6 +11,7 @@ import com.mjv.javaSchool.iapoiBanking.models.Cliente;
 import com.mjv.javaSchool.iapoiBanking.models.Conta;
 import com.mjv.javaSchool.iapoiBanking.models.Endereco;
 import com.mjv.javaSchool.iapoiBanking.repositorys.ClienteRepository;
+import com.mjv.javaSchool.iapoiBanking.util.FormatadorUtil;
 
 @Service
 public class ClienteService {
@@ -21,7 +22,7 @@ public class ClienteService {
 	public void cadastrarNovoCliente(NovoCliente novoCliente) {
 		Cliente cliente = new Cliente();
 		cliente.setNome(novoCliente.getNome());
-		cliente.setCpf(novoCliente.getCpf());
+		cliente.setCpf(FormatadorUtil.formatarCpfdB(novoCliente.getCpf()));
 		
 		Conta conta = new Conta();
 		conta.setSaldo(0.0);

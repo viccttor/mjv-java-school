@@ -20,24 +20,23 @@ public class Movimentacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "data_hora", length = 30)
+	@Column(name = "data_hora")
 	private LocalDateTime dataHora;
 	
-	@Column(name = "descricao", length = 255)
+	@Column(name = "descricao")
 	private String descricao;
 	
 	@Column(name = "valor")
 	private Double valor;
-	
-	@Column(name = "conta_id")
-	private Integer idConta;
 	
 	@Enumerated(EnumType.STRING)
 	private FormaMovimentacao formaMovimentacao;
 
 	@Enumerated(EnumType.STRING)
 	private TipoMovimentacao tipoMovimentacao;
-
+	
+	@Column(name = "conta_id")
+	private Integer idConta;
 	
 	public LocalDateTime getDataHora() {
 		return dataHora;

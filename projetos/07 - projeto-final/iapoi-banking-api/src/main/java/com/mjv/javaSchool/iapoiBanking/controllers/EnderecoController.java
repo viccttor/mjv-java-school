@@ -26,7 +26,7 @@ public class EnderecoController {
 		return repository.findAll();
 	}
 	
-	@GetMapping("{por_id}")
+	@GetMapping("{id}")
 	public Optional<Endereco>  buscarEnderecosId(Integer id) {
 		return repository.findById(id);
 	}
